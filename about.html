@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí</title>
+  <link rel="shortcut icon" type="image/jpg" href="assets/favicon.png"/>
+  <!-- Archivos CSS de Bootstrap -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets\favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Marco Yu Cordero
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre mí</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="programs.html">Mis programas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="15 puzzle.html">15 puzzle</a>
+          </li>
+        </ul>        
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="sobre-mi" class="section-divider">
+      <h1 class="my-4 text-center">Sobre mí</h1>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="assets\artsy_marco.jpg" class="img-fluid rounded" alt="Foto de Marco Yu Cordero">
+        </div>
+        <div class="col-md-6">
+          <p>
+            Soy un puertorriqueño orgulloso con descendencia china interesado en crecer intelectualmente y como hombre.
+            Creo en el uso de la tecnología para construir un mañana mejor. Me apasiona usar software, automatización,
+            inteligencia artificial y otras tecnologías para ayudar a crear soluciones que creen un futuro más
+            brillante.
+          </p>
+          <p>
+            También disfruto haciendo deportes en tierra, como el fútbol (ambos), y en el agua, como el surfing. Creo
+            firmemente que tu mente solo llegará tan lejos como tu cuerpo lo permita. Disfruto cocinando, asegurando una
+            nutrición adecuada y haciendo ejercicio para optimizar la función cognitiva y la salud general de mi cuerpo.
+          </p>
+          <p>
+            Mi abuelo, abogado/principal/maestro, me inspira todos los días, demostrándome que un mañana mejor es
+            posible a través de la búsqueda del conocimiento y la justicia.
+          </p>
+          <p>
+            Estoy en mi tercer año y me graduaré en mayo de 2025.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <canvas id="particle-canvas"></canvas>
+    <script src="particles.js"></script>
+</body>
+
+<style>
+    body {
+  font-family: 'Arial', sans-serif;
+  color: white;
+  line-height: 1.6;
+}
+
+html, body {
+  margin: 0;
+}
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgb(10, 10, 50) 0%,rgb(60, 10, 60) 100%);
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-brand {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-brand img {
+  margin-right: 15px;
+}
+</style>
+
+</html>

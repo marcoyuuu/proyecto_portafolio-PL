@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>15 puzzle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/jpg" href="assets/favicon.png"/>
+  <!-- Archivos CSS de Bootstrap -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets\favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Marco Yu Cordero
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre mí</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="programs.html">Mis programas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="15 puzzle.html">15 puzzle</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="sobre-mi" class="section-divider">
+      <h1 class="my-4 text-center">15 Puzzle</h1>
+    </section>
+  </main>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="puzzle-container">
+    <div>
+      <table id="field" style="border: 5px solid light green"></table>
+    </div>
+    <script> <!-- Creando elementos HTML para las celdas del tablero -->
+      // Definiendo variables globales, tamaño del tablero y las direcciones de movimiento
+      var size = 4;
+      // Creando el tablero, llamando a la función createField()
+      var fieldCells = createField();
+      // Creando los valores iniciales del tablero
+      var values;
+      // Definiendo las variables para las coordenadas de la ficha vacía
+      var emptyX, emptyY;
+      // Definiendo las direcciones de movimiento de las fichas con el teclado
+      var LEFT = {dx: -1, dy: 0};
+      var RIGHT = {dx: 1, dy: 0};
+      var UP = {dx: 0, dy: -1};
+      var DOWN = {dx: 0, dy: 1};
+
+      // Función para crear las celdas del tablero
+      function createField() {
+        // Creando un arreglo vacío para las celdas
+        var cells = [];
+        // Obteniendo el elemento HTML con id 'field'
+        var table = document.getElementById('field');
+        // Creando las filas y columnas del tablero, con el tamaño definido en la variable 'size', y agregando las celdas al arreglo 'cells'
+        for (var y = 0; y < size; y++) {
+          // Creando un elemento HTML 'tr' para cada fila
+          var tr = document.createElement('tr');
+          // Agregando el elemento HTML 'tr' al elemento HTML 'table'
+          table.appendChild(tr);
+          // Creando un arreglo vacío para las celdas de cada fila
+          var rowCells = [];
+          // Agregando el arreglo de celdas a la variable 'cells'
+          cells.push(rowCells);
+          // Loop para crear las celdas de cada fila, con el tamaño definido en la variable 'size', y agregando las celdas al arreglo 'rowCells', que a su vez se agrega al arreglo 'cells'
+          for (var x = 0; x < size; x++) {
+            var td = document.createElement('td');
+            td.setAttribute('class', 'cell');
+            tr.appendChild(td);
+            rowCells.push(td);
+          }
+        }
+        return cells;
+      }
+
+      // Función para crear los valores iniciales del tablero, del 1 al 15
+      function createInitialValues() {
+        // Definiendo las coordenadas de la ficha vacía
+        emptyX = emptyY = size - 1;
+        // Creando un arreglo vacío para los valores
+        var v = [];
+        var i = 1;
+        // Loop para agregar los valores del 1 al 15 al arreglo 'v'
+        for (var y = 0; y < size; y++) {
+          var rowValues = [];
+          v.push(rowValues);
+          for (var x = 0; x < size; x++) {
+            rowValues.push(i);
+            i++
+          }
+        }
+        // Agregando el valor 0 a la última posición del arreglo 'v'
+        v[emptyY][emptyX] = 0;
+        return v;
+      }
+
+      // Función para dibujar el tablero e imprimir valores en HTML
+      function draw() {
+        // Loop para dibujar el tablero
+        for (var y = 0; y < size; y++) {
+          // Loop para imprimir los valores en HTML
+          for (var x = 0; x < size; x++) {
+            // Obteniendo el valor de la ficha
+            var v = values[y][x];
+            // Obteniendo la celda del tablero
+            var td = fieldCells[y][x];
+            // Si el valor de la ficha es 0, no imprimir nada
+            td.innerHTML = v == 0 ? '': String(v);
+          }
+        }
+      }
+      
+      // Función para intercambiar la ficha vacía con la ficha adyacente
+      function makeMove(move) {
+        // Obteniendo las coordenadas de la ficha vacía, y las coordenadas de la ficha adyacente, según la dirección de movimiento definida en la variable 'move'
+        var newX = emptyX + move.dx, newY = emptyY + move.dy;
+        // Verificando si las coordenadas de la ficha adyacente están dentro del tablero (no se salen de los límites) y si es así, intercambiar las fichas
+        if ((newX >= size) || (newX < 0) ||
+          (newY >= size) || (newY < 0)
+        ) {
+          return false;
+        }
+        // Intercambiando las fichas vacía y adyacente
+        var c = values[newY][newX];
+        values[newY][newX] = 0;
+        values[emptyY][emptyX] = c;
+        emptyX = newX;
+        emptyY = newY;
+        return true;
+      }
+
+      // Función para mezclar las fichas, haciendo movimientos aleatorios
+      function shuffle() {
+        // Definiendo las direcciones de movimiento de las fichas con el teclado
+        var options = [LEFT, RIGHT, UP, DOWN];
+        // Iterando n veces para mezclar las fichas
+        var iterations = 500;
+        // Loop para mezclar las fichas aleatoriamente
+        for (var i = 0; i < iterations; i++) {
+          var move = options[Math.floor(Math.random() * options.length)]; // Math.floor() devuelve el máximo entero menor o igual a un número
+          makeMove(move);
+        }
+      }
+
+      // Función para verificar si el juego terminó, o sea si las fichas están en orden
+      function gameOver() {
+        var expectedValue = 1;
+        // Loop para verificar si las fichas están en orden (del 1 al 15) y si la última ficha es la vacía
+        for (var y = 0; y < size; y++) {
+          for (var x = 0; x < size; x++) {
+            // Si el valor de la ficha es el esperado, incrementar el valor esperado
+            if (values[y][x] == expectedValue) {
+              expectedValue++;
+            } else {
+              // La última ficha debe ser la vacía
+              if (x == size - 1 && y == size - 1 && values[y][x] == 0) {
+                return true;
+              }
+              return false;
+            }
+          }
+        }
+        return true;
+      }
+
+      // Manejador de eventos para los movimientos del teclado
+      document.addEventListener('keydown', function(e) { // document.addEventListener() agrega un evento a un elemento HTML
+        switch (e.keyCode) { // e.keyCode devuelve el código de la tecla presionada
+          // Definiendo las direcciones de movimiento de las fichas con el teclado (arriba, abajo, izquierda, derecha)
+          case 38: makeMove(UP); break; 
+          case 40: makeMove(DOWN); break; 
+          case 37: makeMove(LEFT); break; 
+          case 39: makeMove(RIGHT); break; 
+        }
+        // Llamar función para dibujar el tablero
+        draw();
+        // Verificar si el juego terminó después de cada movimiento, si es así, mostrar mensaje de victoria
+        if (gameOver()) {
+          setTimeout(function() {
+            alert('¡Ganaste!');
+            init();
+          }, 1000);
+        }
+      });
+
+      // Función para iniciar el juego
+      function init() { 
+        values = createInitialValues(); // Llamar función para crear los valores iniciales del tablero
+        shuffle(); // Llamar función para mezclar las fichas
+        draw(); // Llamar función para dibujar el tablero
+      }
+
+      init(); // Llamar función para iniciar el juego
+
+    </script>
+  </div>
+
+  <div id="description-container" style="text-align: center;">
+    <p>¡Bienvenido al juego del 15 puzzle! Este es un desafío clásico que pone a prueba tu habilidad para resolver problemas y tu paciencia. Aquí te explicamos cómo jugar:<br><br>
+
+      El juego consiste en un tablero de 4x4 con 15 fichas numeradas y un espacio vacío. El objetivo es mover las fichas alrededor del tablero para ordenarlas del 1 al 15, con el espacio vacío en la última casilla.<br><br>
+      
+      Para mover una ficha, simplemente debes usar las flechas de tu teclado. Cada vez que presionas una flecha, la ficha adyacente al espacio vacío se moverá en la dirección opuesta. Por ejemplo, si presionas la flecha hacia arriba, la ficha debajo del espacio vacío se moverá hacia arriba.<br><br>
+      
+      ¡Buena suerte y diviértete jugando al 15 puzzle!</p>
+  </div>
+
+  </body>
+
+
+  <style>
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-brand {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-brand img {
+  margin-right: 15px;
+}
+
+.cell {
+        width: 57.5px;
+        height: 57.5px;
+        border: 5px solid #90EE90;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: white;
+  line-height: 1.6;
+}
+
+html, body {
+  margin: 0;
+}
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgb(10, 10, 50) 0%,rgb(60, 10, 60) 100%);
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+#puzzle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 47vh;
+}
+
+</style>
+
+</html>

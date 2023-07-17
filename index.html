@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marco Yu Cordero</title>
+  <link rel="shortcut icon" type="image/jpg" href="assets/favicon.png"/>
+  <!-- Archivos CSS de Bootstrap -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Marco Yu Cordero
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre mí</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="programs.html">Mis programas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="15 puzzle.html">15 puzzle</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="home-section text-center">
+      <h1 class="display-4 mt-5">¡Bienvenidos a mi página!</h1>
+      <p class="lead mt-4">
+        Soy Marco Yu Cordero, un apasionado desarrollador y entusiasta de la tecnología. Explora mi sitio para conocer más sobre mí, mi trabajo y mis logros.
+      </p>
+      <div class="row mt-5 justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sobre mí</h5>
+              <p class="card-text">
+                Aprende más sobre mi viaje, mis intereses y lo que me motiva.
+              </p>
+              <a href="about.html" class="button">Leer más</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mis programas</h5>
+              <p class="card-text">
+                Descubre los programas que he creado en JavaScript y PHP.
+              </p>
+              <a href="programs.html" class="button">Ver programas</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mi CV</h5>
+              <p class="card-text">
+                Echa un vistazo a mi currículum para obtener más detalles sobre mi educación y experiencia.
+              </p>
+              <a href="cv.html" class="button">Ver CV</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Elm 15 puzzle</h5>
+              <p class="card-text">
+                Echa un vistazo a mi código Elm 15 puzzle.
+              </p>
+              <a href="15 puzzle.html" class="button">Ver 15 puzzle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    line-height: 1.6;
+    background-image: url('assets/sunset.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; 
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  .navbar-brand {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .navbar-brand img {
+    margin-right: 15px;
+  }
+
+  .button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #D76F30;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #c15f29;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+</style>
+</html>

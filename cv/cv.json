@@ -1,0 +1,46 @@
+{
+  "nombre": "Marco Yu Cordero",
+  "correo": "marco.yu@upr.edu",
+  "experiencia": [{
+      "empresa": "Red Sísmica de Puerto Rico",
+      "puesto": "Desarrollador de aplicación móvil",
+      "periodo": "Mar 2023 - Actualidad",
+      "descripcion": "- Desarollador clave en la creación de una aplicación móvil para la seguridad pública y la educación sobre eventos sísmicos y tsunamis, desempeñando un papel activo en la participación pública y la educación sobre preparación y respuesta ante crisis.\n- He integrado la aplicación con servicios externos para ofrecer un monitoreo completo y confiable de terremotos y tsunamis.\n- He desarrollado una interfaz de usuario intuitiva y atractiva para la aplicación móvil, utilizando React Native y Expo, fomentando la seguridad y la preparación a través de funciones de alerta.\n- He proporcionado información esencial sobre rutas de evacuación para ayudar durante eventos de crisis."
+
+    },
+    {
+      "empresa": "Evertec",
+      "puesto": "Interno de almacenamiento y respaldo",
+      "periodo": "Jun 2022 - Jul 2022",
+      "descripcion": "- Actualizaciones manuales automatizadas del cliente de NetBackup usando el software de NetBackup (NetBackup es la principal herramienta de respaldo en Evertec), ahorrando potencialmente más de $800,000 y 1.8 años, en horas-hombre, en los próximos tres años.\n- Documenté el proceso de automatización para futuras mejoras y continuación.\n- Habilidades interpersonales refinadas trabajando en un ambiente de equipo con mis compañeros de trabajo y presentando mi proyecto a ejecutivos y alrededor de otros 50 empleados.\n- Obtuve información sobre las operaciones y la gestión de la información y la infraestructura de una empresa fintech pública y multinacional.\n- Adquirí numerosas habilidades a través de talleres impartidos por Evertec y cursos de LinkedIn Learning."
+    },
+    {
+      "empresa": "Iguana Sport Services",
+      "puesto": "Auxiliar de Playa y Guía Turístico",
+      "periodo": "Mar 2021 - Jun 2021",
+      "descripcion": "- Desarrollé habilidades de servicio al cliente, trabajo en equipo y atención a los detalles al ofrecer múltiples servicios a los huéspedes del hotel en la playa, guiándolos a tener unas vacaciones increíbles en Puerto Rico"
+    }
+  ],
+  "educacion": [{
+    "institucion": "Universidad de Puerto Rico-Mayagüez",
+    "titulo": "Bachillerato en Ciencias de la Computación",
+    "periodo": "2020 - 2025",
+    "GPA": "3.65",
+    "Cursos relevantes": "\n• Ingeniería de Software: Introducción a conceptos fundamentales, tendencias, metodologías y herramientas utilizadas en el ciclo de desarrollo de software. Creé una aplicación web del sistema de ventas y facturación en un ambiente de equipo.\n • Lenguajes de Programación: Estudié diversos lenguajes de programación y sus respectivas fortalezas. Desarrollé un sitio web de servidor local para practicar programación orientada a objetos, administración de servidores y programación funcional.\n• Algoritmos de computadora: Practiqué varias técnicas para diseñar y analizar algoritmos eficientes, incluido el análisis asintótico, recursividad, divide y vencerás, programación dinámica y algoritmos codiciosos.\n• Introducción a las estructuras de datos: Aprendí a usar diferentes estructuras de datos para diseñar un código eficiente, teniendo en cuenta la corrección, el tiempo de ejecución y el uso de la memoria.",
+    "Clubes y Asociaciones": "\n •802 Surf Association:\n- Parte de la directiva como \"CTO\", liderando el desarrollo de nuestro sitio web y otras necesidades de TI\n- Limpiamos 4 km de costas, inspirando una cultura centrada en el aprecio por la naturaleza y la conservación de las playas."
+  }],
+  "habilidades": [
+    "Python",
+    "JavaScript",
+    "C++",
+    "PHP",
+    "HTML",
+    "CSS",
+    "ReactJS",
+    "React Native",
+    "Desarollo de aplicación móvil",
+    "Desarollo de páginas web",
+    "Full-Stack Development",
+    "Firebase"
+  ]
+}

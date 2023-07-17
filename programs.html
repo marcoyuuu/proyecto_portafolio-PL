@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programas</title>
+  <link rel="shortcut icon" type="image/jpg" href="assets/favicon.png"/>
+  <!-- Archivos CSS de Bootstrap -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets\favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Marco Yu Cordero
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre mí</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="programs.html">Mis programas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="15 puzzle.html">15 puzzle</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="mis-programas" class="section-divider">
+      <h1 class="my-4 text-center">Mis programas</h1>
+      <h2 class="text-center mb-5">Programas en JavaScript</h2>
+      <ul class="list-group my-3 mb-5">
+        <li class="list-group-item"><a href="programas/js/suma.html" class="button">Calculadora de suma</a></li>
+        <li class="list-group-item"><a href="programas/js/par.html" class="button">Verificador de números pares</a></li>
+        <li class="list-group-item"><a href="programas/js/areaCirculo.html" class="button">Cálculo del área de un
+            círculo</a></li>
+      </ul>
+      <h2 class="text-center mb-5">Programas en PHP</h2>
+      <ul class="list-group my-3 mb-0"> <!-- Updated mb-5 to mb-0 -->
+        <li class="list-group-item"><a href="programas/php/suma.php" class="button">Calculadora de suma</a></li>
+        <li class="list-group-item"><a href="programas/php/par.php" class="button">Verificador de números pares</a></li>
+        <li class="list-group-item"><a href="programas/php/areaCirculo.php" class="button">Cálculo del área de un
+            círculo</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <canvas id="particle-canvas"></canvas>
+    <script src="particles.js"></script>
+
+</body>
+
+<style>
+  body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: white;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+
+section {
+  margin-bottom: 4rem;
+}
+
+
+.section-divider {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #D76F30;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #c15f29;
+}
+
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-brand {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-brand img {
+  margin-right: 15px;
+}
+
+
+html, body {
+  margin: 0;
+}
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgb(10, 10, 50) 0%,rgb(60, 10, 60) 100%);
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+</style>
+
+</html>
